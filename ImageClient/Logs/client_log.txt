@@ -1,0 +1,39 @@
+[2026-03-26 8:35:28 PM] Image request triggered
+[2026-03-26 8:41:56 PM] Image request triggered
+[2026-03-26 8:41:57 PM] Image request triggered
+[2026-03-26 8:41:58 PM] Image request triggered
+[2026-03-26 8:41:58 PM] Image request triggered
+[2026-03-26 8:41:58 PM] Image request triggered
+[2026-03-26 8:41:58 PM] Image request triggered
+[2026-03-27 11:23:03 AM] Invalid login
+[2026-03-27 11:23:20 AM] Login successful
+[2026-03-27 11:23:21 AM] Image request triggered
+[2026-03-27 11:34:50 AM] Login successful
+[2026-03-27 11:34:56 AM] Image request triggered
+[2026-03-27 11:36:03 AM] Login successful
+[2026-03-27 11:36:04 AM] Image request triggered
+[2026-03-27 1:48:50 PM] Login successful
+[2026-03-27 1:48:52 PM] Image request triggered
+[2026-03-27 1:51:07 PM] Login successful
+[2026-03-27 1:51:08 PM] Image request triggered
+[2026-03-27 1:54:58 PM] Login successful
+[2026-03-27 1:54:59 PM] Image request triggered
+[2026-03-27 1:55:02 PM] Image saved to: ..\ImageHolder\image_20260327_135502.bin
+[2026-03-27 1:55:10 PM] Login successful
+[2026-03-27 1:55:12 PM] Login successful
+[2026-03-27 1:55:47 PM] Login successful
+[2026-03-27 1:55:48 PM] Image request triggered
+[2026-03-27 1:55:50 PM] Image saved to: ../ImageHolder\image_20260327_135550.bin
+[2026-03-27 1:59:50 PM] Login successful
+[2026-03-27 2:05:57 PM] Login successful
+[2026-03-27 2:05:58 PM] Image request triggered
+[2026-03-27 2:06:00 PM] Image saved to: ../ImageHolder\image_20260327.jpeg
+[2026-03-27 2:06:09 PM] Image request triggered
+[2026-03-27 2:06:11 PM] Image saved to: ../ImageHolder\image_20260327.jpeg
+[2026-03-27 2:15:01 PM] Login successful
+[2026-03-27 2:15:11 PM] Image request triggered
+[2026-03-27 2:15:13 PM] Image saved to: ../ImageHolder\image_20260327.jpeg
+[2026-03-27 2:16:18 PM] Invalid login
+[2026-03-27 2:16:19 PM] Invalid login
+[2026-03-27 2:16:21 PM] Invalid login
+[2026-03-27 2:16:24 PM] Login successful
