@@ -37,3 +37,6 @@
 [2026-03-27 2:16:19 PM] Invalid login
 [2026-03-27 2:16:21 PM] Invalid login
 [2026-03-27 2:16:24 PM] Login successful
+[2026-04-06 10:59:42 AM] Login successful
+[2026-04-06 10:59:55 AM] Image request triggered
+[2026-04-06 10:59:57 AM] Image saved to: ../ImageHolder\image_20260406.jpeg
