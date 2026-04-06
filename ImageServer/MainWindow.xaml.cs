@@ -1,82 +1,92 @@
 ﻿using System;
 using System.Windows;
 using ImageServer.Managers;
+using ImageServer.Models;
 using ImageServer.Utils;
 
-namespace ImageServer;
-
-public partial class MainWindow : Window
+namespace ImageServer
 {
-    private readonly Logger _logger;
-    private readonly ServerManager _serverManager;
-
-    public MainWindow()
+    public partial class MainWindow : Window
     {
-        InitializeComponent();
+        private readonly Logger _logger;
+        private readonly ServerManager _serverManager;
+        private readonly ServerConfig _config;
 
-        _logger = new Logger();
-        _serverManager = new ServerManager(
-            5000,
-            _logger,
-            AppendLog,
-            UpdateClientCount,
-            UpdateServerStatus);
-
-        PortText.Text = "5000";
-        AppendLog("Server UI initialized.");
-    }
-
-    private async void StartServer_Click(object sender, RoutedEventArgs e)
-    {
-        try
+        public MainWindow()
         {
-            StartServerButton.IsEnabled = false;
-            StopServerButton.IsEnabled = true;
+            InitializeComponent();
 
-            await _serverManager.StartAsync();
+            _config = new ServerConfig();
+            _logger = new Logger(_config.LogDirectory);
+
+            _serverManager = new ServerManager(
+                _config,
+                _logger,
+                AppendLog,
+                UpdateClientCount,
+                UpdateServerStatus);
+
+            PortText.Text = _config.Port.ToString();
+            DefaultImageText.Text = _config.DefaultImageFileName;
+
+            AppendLog("Server UI initialized.");
+            AppendLog($"Configured port: {_config.Port}");
+            AppendLog($"Image directory: {_config.ImageDirectory}");
+            AppendLog($"Default image: {_config.DefaultImageFileName}");
         }
-        catch (Exception ex)
+
+        private async void StartServer_Click(object sender, RoutedEventArgs e)
         {
-            AppendLog($"Failed to start server: {ex.Message}");
-            UpdateServerStatus(false);
+            try
+            {
+                StartServerButton.IsEnabled = false;
+                StopServerButton.IsEnabled = true;
+
+                await _serverManager.StartAsync();
+            }
+            catch (Exception ex)
+            {
+                AppendLog($"Failed to start server: {ex.Message}");
+                UpdateServerStatus(false);
+                StartServerButton.IsEnabled = true;
+                StopServerButton.IsEnabled = false;
+            }
+        }
+
+        private void StopServer_Click(object sender, RoutedEventArgs e)
+        {
+            _serverManager.Stop();
+
             StartServerButton.IsEnabled = true;
             StopServerButton.IsEnabled = false;
         }
-    }
 
-    private void StopServer_Click(object sender, RoutedEventArgs e)
-    {
-        _serverManager.Stop();
-
-        StartServerButton.IsEnabled = true;
-        StopServerButton.IsEnabled = false;
-    }
-
-    private void AppendLog(string message)
-    {
-        Dispatcher.Invoke(() =>
+        private void AppendLog(string message)
         {
-            LogOutputTextBox.AppendText($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] {message}{Environment.NewLine}");
-            LogOutputTextBox.ScrollToEnd();
-        });
-    }
+            Dispatcher.Invoke(() =>
+            {
+                LogOutputTextBox.AppendText($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] {message}{Environment.NewLine}");
+                LogOutputTextBox.ScrollToEnd();
+            });
+        }
 
-    private void UpdateClientCount(int count)
-    {
-        Dispatcher.Invoke(() =>
+        private void UpdateClientCount(int count)
         {
-            ConnectedClientsText.Text = count.ToString();
-        });
-    }
+            Dispatcher.Invoke(() =>
+            {
+                ConnectedClientsText.Text = count.ToString();
+            });
+        }
 
-    private void UpdateServerStatus(bool isRunning)
-    {
-        Dispatcher.Invoke(() =>
+        private void UpdateServerStatus(bool isRunning)
         {
-            ServerStatusText.Text = isRunning ? "Running" : "Stopped";
-            ServerStatusText.Foreground = isRunning
-                ? System.Windows.Media.Brushes.ForestGreen
-                : System.Windows.Media.Brushes.Firebrick;
-        });
+            Dispatcher.Invoke(() =>
+            {
+                ServerStatusText.Text = isRunning ? "Running" : "Stopped";
+                ServerStatusText.Foreground = isRunning
+                    ? System.Windows.Media.Brushes.ForestGreen
+                    : System.Windows.Media.Brushes.Firebrick;
+            });
+        }
     }
 }

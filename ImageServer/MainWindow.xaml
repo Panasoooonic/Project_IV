@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:ImageServer"
         mc:Ignorable="d"
         Title="Image Server"
-        Height="520"
-        Width="900"
+        Height="560"
+        Width="950"
         Background="#F5F7FA">
 
     <Grid Margin="20">
@@ -33,7 +33,7 @@
                     <TextBlock Text="Secure Image Download Server"
                                FontSize="22"
                                FontWeight="Bold"/>
-                    <TextBlock Text="Admin / status window for the server"
+                    <TextBlock Text="Server admin/status UI"
                                Margin="0,6,0,0"
                                Foreground="#666666"/>
                 </StackPanel>
@@ -41,8 +41,8 @@
                 <Button x:Name="StartServerButton"
                         Grid.Column="1"
                         Content="Start Server"
-                        Width="120"
-                        Height="36"
+                        Width="130"
+                        Height="38"
                         Margin="10,0,10,0"
                         Background="#2E86DE"
                         Foreground="White"
@@ -52,8 +52,8 @@
                 <Button x:Name="StopServerButton"
                         Grid.Column="2"
                         Content="Stop Server"
-                        Width="120"
-                        Height="36"
+                        Width="130"
+                        Height="38"
                         Background="#E74C3C"
                         Foreground="White"
                         FontWeight="Bold"
@@ -67,6 +67,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <Border Grid.Column="0" Background="White" CornerRadius="10" Padding="15" Margin="0,0,10,0">
@@ -76,13 +77,13 @@
                                Text="Stopped"
                                Margin="0,10,0,0"
                                FontSize="18"
-                               Foreground="#C0392B"/>
+                               Foreground="Firebrick"/>
                 </StackPanel>
             </Border>
 
             <Border Grid.Column="1" Background="White" CornerRadius="10" Padding="15" Margin="0,0,10,0">
                 <StackPanel>
-                    <TextBlock Text="Listening Port" FontWeight="Bold" FontSize="14"/>
+                    <TextBlock Text="Port" FontWeight="Bold" FontSize="14"/>
                     <TextBlock x:Name="PortText"
                                Text="5000"
                                Margin="0,10,0,0"
@@ -90,11 +91,21 @@
                 </StackPanel>
             </Border>
 
-            <Border Grid.Column="2" Background="White" CornerRadius="10" Padding="15">
+            <Border Grid.Column="2" Background="White" CornerRadius="10" Padding="15" Margin="0,0,10,0">
                 <StackPanel>
                     <TextBlock Text="Connected Clients" FontWeight="Bold" FontSize="14"/>
                     <TextBlock x:Name="ConnectedClientsText"
                                Text="0"
+                               Margin="0,10,0,0"
+                               FontSize="18"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="3" Background="White" CornerRadius="10" Padding="15">
+                <StackPanel>
+                    <TextBlock Text="Default Image" FontWeight="Bold" FontSize="14"/>
+                    <TextBlock x:Name="DefaultImageText"
+                               Text="sample.jpg"
                                Margin="0,10,0,0"
                                FontSize="18"/>
                 </StackPanel>

@@ -1,3 +1,5 @@
+using System;
+
 namespace ImageServer.Models
 {
     public class Packet
@@ -7,6 +9,6 @@ namespace ImageServer.Models
         public int PayloadLength { get; set; }
         public byte[] Payload { get; set; } = Array.Empty<byte>();
         public int SequenceNumber { get; set; }
-        public int CRC { get; set; }
+        public int ValidationField { get; set; }
     }
 }
