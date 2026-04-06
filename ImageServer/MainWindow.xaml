@@ -5,8 +5,126 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ImageServer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Image Server"
+        Height="520"
+        Width="900"
+        Background="#F5F7FA">
 
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0"
+                Background="White"
+                CornerRadius="10"
+                Padding="20"
+                Margin="0,0,0,15">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <TextBlock Text="Secure Image Download Server"
+                               FontSize="22"
+                               FontWeight="Bold"/>
+                    <TextBlock Text="Admin / status window for the server"
+                               Margin="0,6,0,0"
+                               Foreground="#666666"/>
+                </StackPanel>
+
+                <Button x:Name="StartServerButton"
+                        Grid.Column="1"
+                        Content="Start Server"
+                        Width="120"
+                        Height="36"
+                        Margin="10,0,10,0"
+                        Background="#2E86DE"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        Click="StartServer_Click"/>
+
+                <Button x:Name="StopServerButton"
+                        Grid.Column="2"
+                        Content="Stop Server"
+                        Width="120"
+                        Height="36"
+                        Background="#E74C3C"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        IsEnabled="False"
+                        Click="StopServer_Click"/>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1" Margin="0,0,0,15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" Background="White" CornerRadius="10" Padding="15" Margin="0,0,10,0">
+                <StackPanel>
+                    <TextBlock Text="Server Status" FontWeight="Bold" FontSize="14"/>
+                    <TextBlock x:Name="ServerStatusText"
+                               Text="Stopped"
+                               Margin="0,10,0,0"
+                               FontSize="18"
+                               Foreground="#C0392B"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="1" Background="White" CornerRadius="10" Padding="15" Margin="0,0,10,0">
+                <StackPanel>
+                    <TextBlock Text="Listening Port" FontWeight="Bold" FontSize="14"/>
+                    <TextBlock x:Name="PortText"
+                               Text="5000"
+                               Margin="0,10,0,0"
+                               FontSize="18"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="2" Background="White" CornerRadius="10" Padding="15">
+                <StackPanel>
+                    <TextBlock Text="Connected Clients" FontWeight="Bold" FontSize="14"/>
+                    <TextBlock x:Name="ConnectedClientsText"
+                               Text="0"
+                               Margin="0,10,0,0"
+                               FontSize="18"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <Border Grid.Row="2"
+                Background="White"
+                CornerRadius="10"
+                Padding="15">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Server Log"
+                           FontSize="16"
+                           FontWeight="Bold"
+                           Margin="0,0,0,10"/>
+
+                <TextBox x:Name="LogOutputTextBox"
+                         Grid.Row="1"
+                         IsReadOnly="True"
+                         VerticalScrollBarVisibility="Auto"
+                         HorizontalScrollBarVisibility="Auto"
+                         TextWrapping="Wrap"
+                         FontFamily="Consolas"
+                         FontSize="13"/>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
