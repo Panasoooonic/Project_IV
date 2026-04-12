@@ -32,6 +32,7 @@ namespace ImageServer
             AppendLog("Server UI initialized.");
             AppendLog($"Configured port: {_config.Port}");
             AppendLog($"Image directory: {_config.ImageDirectory}");
+            AppendLog($"Log directory: {_config.LogDirectory}");
             AppendLog($"Default image: {_config.DefaultImageFileName}");
         }
 

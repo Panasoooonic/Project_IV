@@ -1,6 +1,6 @@
 ﻿using System;
+using System.IO;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using FrameworkApp.Managers;
 using FrameworkApp.Utils;
@@ -17,12 +17,20 @@ namespace FrameworkApp
         {
             InitializeComponent();
 
-            _logger = new Logger("../Logs");
+            string projectRoot = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, @"..\..\..\"));
+            string logDir = Path.Combine(projectRoot, "Logs");
+            string imageHolderDir = Path.Combine(projectRoot, "ImageHolder");
+
+            _logger = new Logger(logDir);
             _networkManager = new NetworkManager("127.0.0.1", 5000, _logger);
-            _imageManager = new ImageManager("../ImageHolder");
+            _imageManager = new ImageManager(imageHolderDir);
 
             PasswordBox.Password = "password123";
+            ImageFileTextBox.Text = "image_20260406.jpeg";
+
             AppendLog("Client initialized.");
+            AppendLog($"Client log directory: {logDir}");
+            AppendLog($"Image output directory: {imageHolderDir}");
         }
 
         private async void LoginButton_Click(object sender, RoutedEventArgs e)

@@ -13,7 +13,10 @@ namespace FrameworkApp.Managers
 
         public ImageManager(string? outputDirectory = null)
         {
-            _outputDirectory = outputDirectory ?? "../ImageHolder";
+            _outputDirectory = outputDirectory ?? Path.Combine(
+                Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, @"..\..\..\")),
+                "ImageHolder");
+
             Directory.CreateDirectory(_outputDirectory);
         }
 

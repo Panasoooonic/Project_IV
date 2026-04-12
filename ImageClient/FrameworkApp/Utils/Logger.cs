@@ -9,7 +9,10 @@ namespace FrameworkApp.Utils
 
         public Logger(string? logDirectory = null)
         {
-            string directory = logDirectory ?? "../Logs";
+            string directory = logDirectory ?? Path.Combine(
+                Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, @"..\..\..\")),
+                "Logs");
+
             Directory.CreateDirectory(directory);
             _logFile = Path.Combine(directory, "client_log.txt");
         }

@@ -2,7 +2,7 @@ using System.Configuration;
 using System.Data;
 using System.Windows;
 
-namespace ImageClient.FrameworkApp;
+namespace FrameworkApp;
 
 /// <summary>
 /// Interaction logic for App.xaml
