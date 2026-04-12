@@ -1,0 +1,46 @@
+# Build output
+bin/
+obj/
+
+# Visual Studio / VS Code user files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / JetBrains
+.idea/
+
+# VS Code local settings
+.vscode/
+
+# Generated .NET files
+*.dll
+*.exe
+*.pdb
+*.cache
+*.resources
+*.sourcelink.json
+*.baml
+
+# WPF generated files
+*.g.cs
+*.g.i.cs
+*.AssemblyInfo.cs
+*.AssemblyInfoInputs.cache
+*.GeneratedMSBuildEditorConfig.editorconfig
+*.MarkupCompile.cache
+
+# Logs
+*.log
+Logs/
+client_log.txt
+server_log.txt
+
+# Publish/test artifacts
+TestResults/
+publish/
+
+# Temporary archives
+*.zip

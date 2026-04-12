@@ -40,3 +40,14 @@
 [2026-04-06 10:59:42 AM] Login successful
 [2026-04-06 10:59:55 AM] Image request triggered
 [2026-04-06 10:59:57 AM] Image saved to: ../ImageHolder\image_20260406.jpeg
+[2026-04-12 09:57:33] CONNECTED | Host=127.0.0.1 | Port=5000
+[2026-04-12 09:57:33] SENT | Type=1 | Command=1 | Seq=0 | PayloadBytes=17
+[2026-04-12 09:57:33] RECEIVED | Type=2 | Command=100 | Seq=0 | PayloadBytes=26
+[2026-04-12 09:57:37] SENT | Type=1 | Command=2 | Seq=0 | PayloadBytes=19
+[2026-04-12 09:57:37] RECEIVED | Type=2 | Command=100 | Seq=0 | PayloadBytes=34
+[2026-04-12 09:57:37] RECEIVED | Type=3 | Command=102 | Seq=1 | PayloadBytes=3
+[2026-04-12 09:57:37] RECEIVED | Type=2 | Command=103 | Seq=2 | PayloadBytes=19
+[2026-04-12 09:57:37] IMAGE SAVED | Path=C:\Users\m1st3\source\repos\Project_IV\ImageClient\FrameworkApp\ImageHolder\image_20260406.jpeg | Chunks=1
+[2026-04-12 09:58:53] SENT | Type=1 | Command=3 | Seq=0 | PayloadBytes=0
+[2026-04-12 09:58:53] LOGOUT SENT
+[2026-04-12 09:58:53] DISCONNECTED

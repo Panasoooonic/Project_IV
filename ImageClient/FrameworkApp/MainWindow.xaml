@@ -47,7 +47,7 @@
                 <PasswordBox x:Name="PasswordBox" Grid.Column="3" Margin="10,0,0,10"/>
 
                 <TextBlock Text="Image File:" Grid.Row="1" VerticalAlignment="Center"/>
-                <TextBox x:Name="ImageFileTextBox" Grid.Row="1" Grid.Column="1" Margin="10,0,15,0" Text="image_20260406.jpeg"/> // Default image file name for testing
+                <TextBox x:Name="ImageFileTextBox" Grid.Row="1" Grid.Column="1" Margin="10,0,15,0" Text="image_20260406.jpeg"/> <!--Default image file name for testing -->
 
                 <Button x:Name="LoginButton"
                         Grid.Row="1"
