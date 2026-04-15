@@ -8,6 +8,13 @@ using FrameworkApp.Utils;
 
 namespace FrameworkApp.Managers
 {
+    /// <summary>
+/// Manages TCP communication between the client and server.
+/// </summary>
+/// <remarks>
+/// Handles connection lifecycle, authentication, sending requests,
+/// and receiving responses from the server.
+/// </remarks>
     public class NetworkManager
     {
         private readonly string _host;
@@ -28,6 +35,10 @@ namespace FrameworkApp.Managers
             _packetHandler = new PacketHandler();
         }
 
+/// <summary>
+/// Connects to the server.
+/// </summary>
+/// <param name="cancellationToken">Cancellation token</param>
         public async Task ConnectAsync(CancellationToken cancellationToken)
         {
             if (IsConnected)
@@ -56,6 +67,13 @@ namespace FrameworkApp.Managers
             _logger.Log("DISCONNECTED");
         }
 
+/// <summary>
+/// Sends login credentials to the server.
+/// </summary>
+/// <param name="username">Username</param>
+/// <param name="password">Password</param>
+/// <param name="cancellationToken">Cancellation token</param>
+/// <returns>Tuple indicating success and message</returns>
         public async Task<(bool Success, string Message)> LoginAsync(string username, string password, CancellationToken cancellationToken)
         {
             EnsureConnected();
@@ -80,6 +98,14 @@ namespace FrameworkApp.Managers
                 : (false, message);
         }
 
+/// <summary>
+/// Requests an image from the server.
+/// </summary>
+/// <param name="fileName">Requested image file name</param>
+/// <param name="imageManager">Image manager instance</param>
+/// <param name="progress">Progress reporter</param>
+/// <param name="cancellationToken">Cancellation token</param>
+/// <returns>Result of the image request</returns>
         public async Task<(bool Success, string Message, string? SavedPath)> RequestImageAsync(
             string fileName,
             ImageManager imageManager,

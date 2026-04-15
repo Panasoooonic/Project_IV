@@ -8,6 +8,12 @@ using ImageServer.Utils;
 
 namespace ImageServer.Managers
 {
+    /// <summary>
+/// Handles sending image files to clients.
+/// </summary>
+/// <remarks>
+/// Splits images into chunks and sends them sequentially.
+/// </remarks>
     public class ImageTransferManager
     {
         private readonly ServerConfig _config;
@@ -21,6 +27,14 @@ namespace ImageServer.Managers
             Directory.CreateDirectory(_config.ImageDirectory);
         }
 
+/// <summary>
+/// Sends an image to the client in chunks.
+/// </summary>
+/// <param name="fileName">Requested file name</param>
+/// <param name="stream">Output stream</param>
+/// <param name="packetHandler">Packet handler</param>
+/// <param name="cancellationToken">Cancellation token</param>
+/// <returns>Number of chunks sent</returns>
         public async Task<int> SendImageAsync(
             string requestedFileName,
             Stream stream,

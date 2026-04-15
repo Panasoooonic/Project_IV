@@ -9,6 +9,12 @@ using ImageServer.Utils;
 
 namespace ImageServer.Managers
 {
+    /// <summary>
+/// Manages the server lifecycle.
+/// </summary>
+/// <remarks>
+/// Responsible for starting, stopping, and accepting client connections.
+/// </remarks>
     public class ServerManager
     {
         private readonly ServerConfig _config;

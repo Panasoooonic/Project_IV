@@ -5,6 +5,12 @@ using FrameworkApp.Models;
 
 namespace FrameworkApp.Managers
 {
+    /// <summary>
+/// Handles reconstruction of image data on the client side.
+/// </summary>
+/// <remarks>
+/// Collects image chunks and reassembles them into a complete image file.
+/// </remarks>
     public class ImageManager
     {
         private readonly string _outputDirectory;
@@ -20,12 +26,19 @@ namespace FrameworkApp.Managers
             Directory.CreateDirectory(_outputDirectory);
         }
 
+/// <summary>
+/// Clears all stored chunks.
+/// </summary>
         public void Reset()
         {
             _chunks.Clear();
             _finalFileName = "downloaded_image.jpg";
         }
 
+/// <summary>
+/// Adds an image chunk to the collection.
+/// </summary>
+/// <param name="packet">Packet containing image data</param>
         public void AddChunk(Packet packet)
         {
             if (packet.CommandId != CommandIds.ImageChunk)
@@ -47,6 +60,10 @@ namespace FrameworkApp.Managers
             }
         }
 
+/// <summary>
+/// Saves the reconstructed image to disk.
+/// </summary>
+/// <returns>File path of saved image</returns>
         public string SaveImage()
         {
             string outputPath = Path.Combine(_outputDirectory, _finalFileName);

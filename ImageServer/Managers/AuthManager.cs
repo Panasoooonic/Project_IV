@@ -4,6 +4,9 @@ using System.Text;
 
 namespace ImageServer.Managers
 {
+    /// <summary>
+/// Handles user authentication.
+/// </summary>
     public class AuthManager
     {
         private readonly Dictionary<string, string> _credentials = new(StringComparer.OrdinalIgnoreCase)

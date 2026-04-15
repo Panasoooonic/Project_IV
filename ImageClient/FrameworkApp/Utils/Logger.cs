@@ -3,6 +3,13 @@ using System.IO;
 
 namespace FrameworkApp.Utils
 {
+    /// <summary>
+/// Handles logging for client and server.
+/// </summary>
+/// <remarks>
+/// Writes timestamped messages to log files.
+/// </remarks>
+public class Logger
     public class Logger
     {
         private readonly string _logFile;

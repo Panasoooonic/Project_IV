@@ -9,6 +9,13 @@ using ImageServer.Utils;
 
 namespace ImageServer.Managers
 {
+    /// <summary>
+/// Handles communication for a single client session.
+/// </summary>
+/// <remarks>
+/// Processes incoming packets, maintains session state,
+/// and executes client commands.
+/// </remarks>
     public class ClientSession
     {
         private readonly TcpClient _client;

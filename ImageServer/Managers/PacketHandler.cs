@@ -7,10 +7,22 @@ using ImageServer.Models;
 
 namespace ImageServer.Managers
 {
+    /// <summary>
+/// Handles serialization and deserialization of Packet objects.
+/// </summary>
+/// <remarks>
+/// Converts packets to byte arrays for transmission and reconstructs them from streams.
+/// Also performs validation to ensure data integrity.
+/// </remarks>
     public class PacketHandler
     {
         private const int HeaderSize = sizeof(int) * 5;
 
+/// <summary>
+/// Serializes a Packet into a byte array.
+/// </summary>
+/// <param name="packet">Packet to serialize</param>
+/// <returns>Byte array representation of the packet</returns>
         public byte[] Serialize(Packet packet)
         {
             packet.Payload ??= Array.Empty<byte>();
@@ -36,6 +48,13 @@ namespace ImageServer.Managers
             return buffer;
         }
 
+/// <summary>
+/// Reads and reconstructs a packet from a stream.
+/// </summary>
+/// <param name="stream">Input stream</param>
+/// <param name="cancellationToken">Cancellation token</param>
+/// <returns>Deserialized Packet</returns>
+/// <exception cref="InvalidDataException">Thrown if packet is malformed</exception>
         public async Task<Packet> ReadPacketAsync(Stream stream, CancellationToken cancellationToken)
         {
             byte[] header = await ReadExactAsync(stream, HeaderSize, cancellationToken);
@@ -84,6 +103,12 @@ namespace ImageServer.Managers
             return packet;
         }
 
+/// <summary>
+/// Writes a packet to the output stream.
+/// </summary>
+/// <param name="stream">Output stream</param>
+/// <param name="packet">Packet to send</param>
+/// <param name="cancellationToken">Cancellation token</param>
         public async Task WritePacketAsync(Stream stream, Packet packet, CancellationToken cancellationToken)
         {
             byte[] bytes = Serialize(packet);

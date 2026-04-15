@@ -1,0 +1,58 @@
+/**
+ * @mainpage Secure Image Download System
+ *
+ * @section intro Introduction
+ * This project implements a secure client-server system for transferring image files
+ * over a network using structured packet communication and authentication.
+ *
+ * @section architecture System Architecture
+ * The system follows a client-server architecture:
+ * - The client provides a user interface for login and image requests
+ * - The server listens for connections and processes requests
+ * - Communication is performed over TCP using structured packets
+ *
+ * @section components Components
+ * The system is composed of:
+ * - NetworkManager (client communication)
+ * - ServerManager (server lifecycle)
+ * - PacketHandler (packet serialization/deserialization)
+ * - ImageTransferManager (chunked image sending)
+ * - ImageManager (image reconstruction)
+ * - AuthManager (authentication)
+ * - StateManager (state machine control)
+ *
+ * @section state_machine State Machine
+ * The server enforces valid behavior using a state machine:
+ * - WaitingForConnection
+ * - Connected
+ * - Authenticated
+ * - Ready
+ * - SendingImage
+ *
+ * Transitions are strictly controlled to prevent invalid operations.
+ *
+ * @section packet_design Packet Design
+ * Communication is handled using structured packets containing:
+ * - Packet type
+ * - Command ID
+ * - Payload length
+ * - Payload data
+ * - Sequence number
+ * - Validation field
+ *
+ * @section data_flow Data Flow
+ * 1. Client sends login packet
+ * 2. Server validates credentials
+ * 3. Client requests image
+ * 4. Server splits image into chunks
+ * 5. Server sends chunks with sequence numbers
+ * 6. Client reconstructs image
+ *
+ * @section testing Testing
+ * The system includes a regression test suite using MSTest
+ * to validate packet handling, authentication, and image transfer.
+ *
+ * @section conclusion Conclusion
+ * This system demonstrates secure communication, reliable data transfer,
+ * and proper architectural design principles.
+ */
